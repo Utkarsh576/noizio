@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../app/theme/app_colors.dart';
 import '../widgets/song_card.dart';
+import 'search_screen.dart'; // ✅ Added for navigation
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,10 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
-              // TODO: Implement search
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const SearchScreen()),
+              );
             },
           ),
         ],
@@ -38,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               height: 160,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5, // Placeholder
+                itemCount: 5,
                 itemBuilder: (context, index) {
                   return const SongCard(isHorizontal: true);
                 },
